@@ -1,0 +1,189 @@
+@(message: String, unitTypes: List[UnitType], unitProp: List[UnitProp])
+@main("Title") {
+
+<div class="mainMenu">
+    <ul class="UlmMinMenu">
+        <li><a href="/home">Home</a></li>
+        <li><a class="activeM" href="/begin">Create new UE</a></li>
+        <li><a href="/find">Find</a></li>
+        <li><a href="#">Change</a></li>
+        <ul style="float:right; list-style-type:none;">
+            <li><a href="#">About</a></li>
+            <li><a href="/">Logout</a></li>
+        </ul>
+    </ul>
+    <h1>@message</h1>
+
+    <form action="/addNewUnit" method="POST" enctype="application/x-www-form-urlencoded">
+        <div class="Properties">
+            <select name="type" required style="float:left; margin-top:7px;">
+                <option value="" selected="selected" disabled>Choose type...</option>
+                @for(t <- unitTypes) {
+                    <option value="@t.getId()">@t.getNameOfType()</option>
+                }
+            </select>
+            <input name="invNum" type="text" style="float:left; width:250px; margin-left:10px; height:30px;" placeholder="Fill inventory number">
+        </div>
+        <div class="Properties">
+            <select class="sel" name="prop1">
+                <option selected="selected" value="0">Choose property...</option>
+                @for(p <- unitProp) {
+                    <option value="@p.getId()">@p.getName()</option>
+                }
+            </select>
+            <input type="text" name="value1" value="">
+            <select class="sel" name="propDT1" required>
+                <option selected="selected" value="0">Choose unit...</option>
+                @for(p <- unitProp) {
+                    @if(p.getDataType() != "") {
+                        <option value="@p.getId()">@p.getDataType()</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="Properties">
+            <select class="sel" name="prop2">
+                <option selected="selected" value="0">Choose property...</option>
+                @for(p <- unitProp) {
+                    <option value="@p.getId()">@p.getName()</option>
+                }
+            </select>
+            <input type="text" name="value2">
+            <select class="sel" name="propDT2" required>
+                <option selected="selected" value="0">Choose unit...</option>
+                @for(p <- unitProp) {
+                @if(p.getDataType() != "") {
+                <option value="@p.getId()">@p.getDataType()</option>
+                }
+                }
+            </select>
+        </div>
+        <div class="Properties">
+            <select class="sel" name="prop3">
+                <option selected="selected" value="0">Choose property...</option>
+                @for(p <- unitProp) {
+                <option value="@p.getId()">@p.getName()</option>
+                }
+            </select>
+            <input type="text" name="value3">
+            <select class="sel" name="propDT3" required>
+                <option selected="selected" value="0">Choose unit...</option>
+                @for(p <- unitProp) {
+                @if(p.getDataType() != "") {
+                <option value="@p.getId()">@p.getDataType()</option>
+                }
+                }
+            </select>
+        </div>
+        <div class="Properties">
+            <select class="sel" name="prop4">
+                <option selected="selected"  value="0">Choose property...</option>
+                @for(p <- unitProp) {
+                <option value="@p.getId()">@p.getName()</option>
+                }
+            </select>
+            <input type="text" name="value4">
+            <select class="sel" name="propDT4" required>
+                <option selected="selected" value="0">Choose unit...</option>
+                @for(p <- unitProp) {
+                @if(p.getDataType() != "") {
+                <option value="@p.getId()">@p.getDataType()</option>
+                }
+                }
+            </select>
+        </div>
+        <div class="Properties">
+            <select class="sel" name="prop5">
+                <option selected="selected" value="0">Choose property...</option>
+                @for(p <- unitProp) {
+                <option value="@p.getId()">@p.getName()</option>
+                }
+            </select>
+            <input type="text" name="value5">
+            <select class="sel" name="propDT5" required>
+                <option selected="selected"  value="0">Choose unit...</option>
+                @for(p <- unitProp) {
+                @if(p.getDataType() != "") {
+                <option value="@p.getId()">@p.getDataType()</option>
+                }
+                }
+            </select>
+        </div>
+        <div class="Properties">
+            <select class="sel" name="prop6">
+                <option selected="selected" value="0">Choose property...</option>
+                @for(p <- unitProp) {
+                <option value="@p.getId()">@p.getName()</option>
+                }
+            </select>
+            <input type="text" name="value6">
+            <select class="sel" name="propDT6" required>
+                <option selected="selected" value="0">Choose unit...</option>
+                @for(p <- unitProp) {
+                @if(p.getDataType() != "") {
+                <option value="@p.getId()">@p.getDataType()</option>
+                }
+                }
+            </select>
+        </div>
+        <div class="Properties">
+        <select class="sel" name="prop7">
+            <option selected="selected" value="0">Choose property...</option>
+            @for(p <- unitProp) {
+            <option value="@p.getId()">@p.getName()</option>
+            }
+        </select>
+        <input type="text" name="value7">
+        <select class="sel" name="propDT7" required>
+            <option selected="selected" value="0">Choose unit...</option>
+            @for(p <- unitProp) {
+            @if(p.getDataType() != "") {
+            <option value="@p.getId()">@p.getDataType()</option>
+            }
+            }
+        </select>
+    </div>
+        <div class="Properties">
+            <select class="sel" name="prop8">
+                <option selected="selected" value="0">Choose property...</option>
+                @for(p <- unitProp) {
+                <option value="@p.getId()">@p.getName()</option>
+                }
+            </select>
+            <input type="text" name="value8">
+            <select class="sel" name="propDT8" required>
+                <option selected="selected" value="0">Choose unit...</option>
+                @for(p <- unitProp) {
+                @if(p.getDataType() != "") {
+                <option value="@p.getId()">@p.getDataType()</option>
+                }
+                }
+            </select>
+        </div>
+        <button class="button button-block" style="margin-bottom:20px;">Create</button>
+    </form>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+
+</script>
+<script>
+    var counter = 0;
+    $("button").click(function() {
+        $("form").append(
+
+        "<p class='test'>click me " + (++counter) + "</p>"
+
+        )
+    });
+
+    $("form").on("click", "p.test", function(){
+        alert($(this).text());
+    });
+
+</script>
+
+
+}

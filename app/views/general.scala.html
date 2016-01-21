@@ -1,0 +1,19 @@
+@(message: String)
+@main("Title") {
+
+<div class="mainMenu">
+    <ul class="UlmMinMenu">
+        <li><a class="activeM" href="/home">Home</a></li>
+        <li><a href="/begin">Create new UE</a></li>
+        <li><a href="/find">Find</a></li>
+        <li><a href="#">Change</a></li>
+        <ul style="float:right; list-style-type:none;">
+            <li><a href="#about">About</a></li>
+            <li><a href="/">Logout</a></li>
+        </ul>
+    </ul>
+    <h1>@message</h1>
+    <h2 style="color: #fff;">It's your workspace</h2>
+</div>
+
+}

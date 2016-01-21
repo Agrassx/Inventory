@@ -1,0 +1,56 @@
+@(message: String, find: List[findUnit.FindByInvNumber])
+@main("Title") {
+
+<div class="mainMenu">
+    <ul class="UlmMinMenu">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/begin">Create new UE</a></li>
+        <li><a class="activeM" href="#news">Find</a></li>
+        <li><a href="#">Change</a></li>
+        <ul style="float:right; list-style-type:none;">
+            <li><a href="#about">About</a></li>
+            <li><a href="/">Logout</a></li>
+        </ul>
+    </ul>
+    <h1>@message</h1>
+    <form action="/findIt" method="POST" enctype="application/x-www-form-urlencoded">
+        <div class="Properties">
+            <select name="findBy" required style="float:left; margin-top:5px; margin-right: 20px;">
+                <option value="" selected="selected" disabled>Find by...</option>
+                <option value="1">Inventory number</option>
+                <option value="2">Type</option>
+                <option value="3">Property</option>
+            </select>
+            <input name="invNum" type="text" required style="float:left; width:250px; margin: 0 10px 20px 0; height:30px;"><br>
+            <button class="button button-block" style="margin-bottom:20px; margin-top: 10px;">Find</button>
+        </div>
+    </form>
+    @if(find != null) {
+        <table id="t01">
+            <tr>
+                <th>Inv. number</th>
+                <th>Type</th>
+                <th>Property</th>
+                <th>Value</th>
+                <th>Data type</th>
+                <th>Was</th>
+                <th>By</th>
+                <th>When</th>
+            </tr>
+            @for(f <- find) {
+                <tr>
+                    <td>@f.getInvNum()</td>
+                    <td>@f.getTypeName()</td>
+                    <td>@f.getPropName()</td>
+                    <td>@f.getPropUeValue()</td>
+                    <td>@f.getPropDataType()</td>
+                    <td>@f.getNameRule()</td>
+                    <td>@f.getUserName() @f.getUserSurname()</td>
+                    <td>@f.getModDate()</td>
+                </tr>
+            }
+        </table>
+    }
+</div>
+
+}
